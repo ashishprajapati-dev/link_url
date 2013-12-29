@@ -1,0 +1,37 @@
+{<img src="https://badge.fury.io/rb/link_url.png" alt="Gem Version" />}[http://badge.fury.io/rb/link_url]
+
+= link_url
+
+* http://github.com/ashishprajapati-dev/link_url
+
+== FEATURES:
+
+link_url is the best gem for converting url from the string or text into the links. It can convert the url's which contain http://, https and www. from the string. No need to thing about the REGEX.
+
+== DESCRIPTION:
+
+    require 'link_url'
+
+    #string => Hi my new website http://www.bookofskills.com ! Please come at us to reward me.
+    LinkUrl.convert("Hi my new website http://www.bookofskills.com ! Please come at us to reward me.")
+    #result => Hi my new website <a href='http://www.bookofskills.com'>http://www.bookofskills.com</a> ! Please come at us to reward me.
+
+    #string => It is good to search on https://www.clecotech.in
+    LinkUrl.convert("It is good to search on https://www.clecotech.in")
+    #result => It is good to search on <a href='https://www.clecotech.in'>https://www.clecotech.in</a>",
+      
+    #string => ww.ashishprajapati.com is my personal website.
+    LinkUrl.convert("www.ashishprajapati.com is my personal website.")
+    #result => <a href='http://www.ashishprajapati.com'>www.ashishprajapati.com</a> is my personal website.
+
+    #string => I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com
+    LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
+    #result => I have created many websites and some of them are <a href='http://www.clecotech.in'>www.clecotech.in</a> <a href='http://www.aptrick.in'>http://www.aptrick.in</a> , <a href='http://www.bookofskills.com'>www.bookofskills.com</a> , <a href='https://rubygems.org'>https://rubygems.org</a> and <a href='http://www.codead.com'>http://www.codead.com</a>"
+
+== REQUIREMENTS:
+
+* rails > 3.1
+
+== INSTALL:
+
+* gem install link_url
