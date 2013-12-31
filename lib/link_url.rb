@@ -10,26 +10,11 @@ class LinkUrl
   #   content: (String)
 
   def self.convert(content)
-  	if !content.gsub( %r{https://[^\s<]+} ).nil?
-    	content.gsub( %r{http://[^\s<]+} ) do |url|
-    		content = content.gsub(url,"<a href='"+url+"'>"+url+"</a>")
-  		end
-  	end
-  	if !content.gsub( %r{https://[^\s<]+} ).nil?
-  		content.gsub( %r{https://[^\s<]+} ) do |url|
-    		content = content.gsub(url,"<a href='"+url+"'>"+url+"</a>")
-  		end
-  	end
-  	if !content.gsub( %r{ www.[^\s<]+} ).nil?
-  		content.gsub( %r{ www.[^\s<]+} ) do |url|
-    		content = content.gsub(url," <a href='http://"+url.gsub(" ","")+"'>"+url.gsub(" ","")+"</a>")
-  		end
-  	end
-    if !content.gsub( %r{^\www.[^\s<]+} ).nil?
-      content.gsub( %r{^\www.[^\s<]+} ) do |url|
-        content = content.gsub(url,"<a href='http://"+url+"'>"+url+"</a>")
-      end
+    if(content) 
+    exp =/\b((?:mailto:\S+|(?:https?|ftp|file):\/\/|www.)[^\s<]+)\b/
+    content = content.gsub(exp) { |url| "<a href='"+url+"'>"+url+"</a>" }
+    content = content.gsub("<a href='www.","<a href='http://www.");
+    return content
     end
-  	return content
   end
 end
