@@ -6,7 +6,14 @@
 
 == FEATURES:
 
-link_url is the best gem for converting url from the string or text into the links. It can convert the url's which contain http://, https and www. from the string. No need to thing about the REGEX.
+link_url is the best gem for converting url and images into links and image tags from the string or text into the links. It can convert the url's which contain http://, https and www. from the string. No need to thing about the REGEX. It is the best one because it contains three diffrent functions so you can use as per your requirment.
+
+1. LinkUrl.convert("Your Content")
+* It converts all the url's into the links.
+2. LinkUrl.convert_image("Your Content")
+* It converts only image's url into the links.
+3. LinkUrl.convert_all("Your Content")
+* It converts image url's into the image tag and other url's into the links.
 
 == DESCRIPTION:
 
@@ -27,6 +34,14 @@ link_url is the best gem for converting url from the string or text into the lin
     #string => I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com
     LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
     #result => I have created many websites and some of them are <a href='http://www.clecotech.in'>www.clecotech.in</a> <a href='http://www.aptrick.in'>http://www.aptrick.in</a> , <a href='http://www.bookofskills.com'>www.bookofskills.com</a> , <a href='https://rubygems.org'>https://rubygems.org</a> and <a href='http://www.codead.com'>http://www.codead.com</a>"
+
+    #string => LinkUrl.convert_image("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
+    LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
+    #result => Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />"
+
+    #string => LinkUrl.convert_all("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
+    LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
+    #result => Hi I have updated the code. my website is <a href='www.ashishprajapati.com'>www.ashishprajapati.com</a> you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />
 
 == REQUIREMENTS:
 
