@@ -11,7 +11,7 @@ link_url is the best gem for converting url and images into links and image tags
 # LinkUrl.convert("Your Content")
 * It converts all the url's into the links.
 # LinkUrl.convert_image("Your Content")
-* It converts only image's url into the links.
+* It converts only image's url into the image tag and remain other url normal.
 # LinkUrl.convert_all("Your Content")
 * It converts image url's into the image tag and other url's into the links.
 
