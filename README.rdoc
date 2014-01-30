@@ -8,11 +8,11 @@
 
 link_url is the best gem for converting url and images into links and image tags from the string or text into the links. It can convert the url's which contain http://, https and www. from the string. No need to thing about the REGEX. It is the best one because it contains three diffrent functions so you can use as per your requirment.
 
-1. LinkUrl.convert("Your Content")
+# LinkUrl.convert("Your Content")
 * It converts all the url's into the links.
-2. LinkUrl.convert_image("Your Content")
+# LinkUrl.convert_image("Your Content")
 * It converts only image's url into the links.
-3. LinkUrl.convert_all("Your Content")
+# LinkUrl.convert_all("Your Content")
 * It converts image url's into the image tag and other url's into the links.
 
 == DESCRIPTION:
