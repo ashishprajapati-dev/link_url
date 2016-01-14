@@ -18,7 +18,10 @@ class LinkUrl
     if(content) 
     exp =/\b(((?:mailto:\S+|(?:https?|ftp|file):\/\/|www.)[^\s<]+)|[^\s<]+(#{self.tlds.values.join('|\\')}))\b/
       content = content.gsub(exp) do |url|
-        if (url=~/http:\/\/|https:\/\/|ftp:\/\/|file:\/\/|www\./)!=0 && url[/(#{self.tlds.values.join('|\\')})$/]
+        puts url
+        if (url=~/@+[^\s<]+(#{self.tlds.values.join('|\\')})/)!=nil
+          "<a href='mailto:#{url}'>#{url}</a>"
+        elsif (url=~/http:\/\/|https:\/\/|ftp:\/\/|file:\/\/|www\./)!=0 && url[/(#{self.tlds.values.join('|\\')})$/]
           "<a href='http://#{url}'>#{url}</a>"
         else
           "<a href='#{url}'>#{url}</a>".gsub("<a href='www.","<a href='http://www.");
@@ -45,8 +48,11 @@ class LinkUrl
     if(content) 
       exp =/\b(((?:mailto:\S+|(?:https?|ftp|file):\/\/|www.)[^\s<]+)|[^\s<]+(#{self.tlds.values.join('|\\')}))\b/
       content = content.gsub(exp) do |url|
+        puts url
         if url[/(?:png|jpe?g|gif|svg|bmp)$/]
           "<img src='#{url}' />"
+        elsif (url=~/@+[^\s<]+(#{self.tlds.values.join('|\\')})/)!=nil
+          "<a href='mailto:#{url}'>#{url}</a>"
         elsif (url=~/http:\/\/|https:\/\/|ftp:\/\/|file:\/\/|www\./)!=0 && url[/(#{self.tlds.values.join('|\\')})$/]
           "<a href='http://#{url}'>#{url}</a>"
         else
