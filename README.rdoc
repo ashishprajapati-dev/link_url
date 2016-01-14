@@ -6,7 +6,7 @@
 
 == FEATURES:
 
-link_url is the best gem for converting url and images into links and image tags from the string or text into the links. It can convert the url's which contain http://, https and www. from the string. No need to thing about the REGEX. It is the best one because it contains three diffrent functions so you can use as per your requirment.
+link_url is the best gem for converting url and images into links and image tags from the string or text into the links. It can convert the url's which contain http://, https, www. or naked domain from the string. No need to thing about the REGEX. It is the best one because it contains three diffrent functions so you can use as per your requirments. It have a good ability to convert emails into email links
 
 # LinkUrl.convert("Your Content")
 * It converts all the url's into the links.
@@ -27,7 +27,7 @@ link_url is the best gem for converting url and images into links and image tags
     LinkUrl.convert("It is good to search on https://www.clecotech.in")
     #result => It is good to search on <a href='https://www.clecotech.in'>https://www.clecotech.in</a>",
       
-    #string => ww.ashishprajapati.com is my personal website.
+    #string => www.ashishprajapati.com is my personal website.
     LinkUrl.convert("www.ashishprajapati.com is my personal website.")
     #result => <a href='http://www.ashishprajapati.com'>www.ashishprajapati.com</a> is my personal website.
 
@@ -35,13 +35,17 @@ link_url is the best gem for converting url and images into links and image tags
     LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
     #result => I have created many websites and some of them are <a href='http://www.clecotech.in'>www.clecotech.in</a> <a href='http://www.aptrick.in'>http://www.aptrick.in</a> , <a href='http://www.bookofskills.com'>www.bookofskills.com</a> , <a href='https://rubygems.org'>https://rubygems.org</a> and <a href='http://www.codead.com'>http://www.codead.com</a>"
 
-    #string => LinkUrl.convert_image("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
-    LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
+    #string => Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png
+    LinkUrl.convert_image("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
     #result => Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />"
 
-    #string => LinkUrl.convert_all("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
-    LinkUrl.convert("I have created many websites and some of them are www.clecotech.in http://www.aptrick.in , www.bookofskills.com , https://rubygems.org and http://www.codead.com")
+    #string => Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png
+    LinkUrl.convert_all("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")
     #result => Hi I have updated the code. my website is <a href='www.ashishprajapati.com'>www.ashishprajapati.com</a> you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />
+
+    #string => Hello my email is mail@ashishprajapati.com . You can visit my blog at clecotech.in
+    LinkUrl.convert("Hello my email is mail@ashishprajapati.com . You can visit my blog at clecotech.in")
+    #result => Hello my email is <a href='mailto:mail@ashishprajapati.com'>mail@ashishprajapati.com</a> . You can visit my blog at <a href='http://clecotech.in'>clecotech.in</a>
 
 == REQUIREMENTS:
 

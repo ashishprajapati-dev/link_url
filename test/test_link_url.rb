@@ -24,8 +24,14 @@ class LinkUrlTest < Test::Unit::TestCase
       assert_equal "Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />",
       LinkUrl.convert_image("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")       
   end
+
   def test_image_all
-      assert_equal "Hi I have updated the code. my website is <a href='www.ashishprajapati.com'>www.ashishprajapati.com</a> you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />",
+      assert_equal "Hi I have updated the code. my website is <a href='http://www.ashishprajapati.com'>www.ashishprajapati.com</a> you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />",
       LinkUrl.convert_all("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")       
+  end
+
+  def test_emails
+      assert_equal "Hello my email is <a href='mailto:mail@ashishprajapati.com'>mail@ashishprajapati.com</a> . You can visit my blog at <a href='http://clecotech.in'>clecotech.in</a>",
+      LinkUrl.convert_all("Hello my email is mail@ashishprajapati.com . You can visit my blog at clecotech.in")       
   end
 end

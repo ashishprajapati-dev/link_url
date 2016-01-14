@@ -11,6 +11,8 @@ class LinkUrl
   #   => Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />
   #   >> LinkUrl.convert_all("Hi I have updated the code. my website is www.ashishprajapati.com you can see my pic using www.ashishprajapati.com/ashish.png")       
   #   => Hi I have updated the code. my website is <a href='www.ashishprajapati.com'>www.ashishprajapati.com</a> you can see my pic using <img src='www.ashishprajapati.com/ashish.png' />
+  #   >> LinkUrl.convert_all("Hello my email is mail@ashishprajapati.com . You can visit my blog at clecotech.in")       
+  #   => Hello my email is <a href='mailto:mail@ashishprajapati.com'>mail@ashishprajapati.com</a> . You can visit my blog at <a href='http://clecotech.in'>clecotech.in</a>
   # Arguments:
   #   content: (String)
   # Convert all url into links.
@@ -18,7 +20,6 @@ class LinkUrl
     if(content) 
     exp =/\b(((?:mailto:\S+|(?:https?|ftp|file):\/\/|www.)[^\s<]+)|[^\s<]+(#{self.tlds.values.join('|\\')}))\b/
       content = content.gsub(exp) do |url|
-        puts url
         if (url=~/@+[^\s<]+(#{self.tlds.values.join('|\\')})/)!=nil
           "<a href='mailto:#{url}'>#{url}</a>"
         elsif (url=~/http:\/\/|https:\/\/|ftp:\/\/|file:\/\/|www\./)!=0 && url[/(#{self.tlds.values.join('|\\')})$/]
@@ -48,7 +49,6 @@ class LinkUrl
     if(content) 
       exp =/\b(((?:mailto:\S+|(?:https?|ftp|file):\/\/|www.)[^\s<]+)|[^\s<]+(#{self.tlds.values.join('|\\')}))\b/
       content = content.gsub(exp) do |url|
-        puts url
         if url[/(?:png|jpe?g|gif|svg|bmp)$/]
           "<img src='#{url}' />"
         elsif (url=~/@+[^\s<]+(#{self.tlds.values.join('|\\')})/)!=nil
